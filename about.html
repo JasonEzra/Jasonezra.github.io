@@ -2,41 +2,724 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>About the Ministries - New Covenant Ministries</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Montserrat:wght@300;400;600&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --primary: #8B0000;
+      --primary-light: #a52a2a;
+      --gold: #D4AF37;
+      --light: #f8f8f8;
+      --dark: #222;
+      --transition: all 0.5s cubic-bezier(0.25, 1, 0.5, 1);
+    }
+    
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    
+    body {
+      font-family: 'Montserrat', sans-serif;
+      background-color: var(--light);
+      color: var(--dark);
+      overflow-x: hidden;
+      line-height: 1.7;
+    }
+    
+    h1, h2, h3, h4 {
+      font-family: 'Playfair Display', serif;
+      font-weight: 700;
+    }
+    
+    /* Parallax Hero Section */
+    .hero {
+      height: 100vh;
+      min-height: 600px;
+      position: relative;
+      overflow: hidden;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: white;
+      text-align: center;
+    }
+    
+    .hero::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.3));
+      z-index: 1;
+    }
+    
+    .hero-bg {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: url('https://images.unsplash.com/photo-1518509562904-e7ef99cdcc86?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80') center/cover no-repeat;
+      will-change: transform;
+    }
+    
+    .hero-content {
+      position: relative;
+      z-index: 2;
+      max-width: 800px;
+      padding: 0 20px;
+    }
+    
+    .hero h1 {
+      font-size: 4rem;
+      margin-bottom: 1rem;
+      text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+    }
+    
+    .hero p {
+      font-size: 1.2rem;
+      margin-bottom: 2rem;
+    }
+    
+    /* Navigation */
+    nav {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      padding: 20px 5%;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      z-index: 1000;
+      transition: var(--transition);
+    }
+    
+    nav.scrolled {
+      background-color: rgba(0, 0, 0, 0.9);
+      padding: 15px 5%;
+    }
+    
+    .logo {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.8rem;
+      color: white;
+      text-decoration: none;
+      font-weight: 700;
+    }
+    
+    .nav-links {
+      display: flex;
+      gap: 30px;
+    }
+    
+    .nav-links a {
+      color: white;
+      text-decoration: none;
+      font-weight: 600;
+      position: relative;
+      transition: var(--transition);
+    }
+    
+    .nav-links a::after {
+      content: '';
+      position: absolute;
+      bottom: -5px;
+      left: 0;
+      width: 0;
+      height: 2px;
+      background-color: var(--gold);
+      transition: var(--transition);
+    }
+    
+    .nav-links a:hover::after {
+      width: 100%;
+    }
+    
+    /* Main Content */
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 100px 20px;
+    }
+    
+    .section-title {
+      text-align: center;
+      margin-bottom: 60px;
+      position: relative;
+    }
+    
+    .section-title h2 {
+      font-size: 2.5rem;
+      color: var(--primary);
+      display: inline-block;
+    }
+    
+    .section-title h2::after {
+      content: '';
+      position: absolute;
+      bottom: -15px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 80px;
+      height: 3px;
+      background-color: var(--gold);
+    }
+    
+    .history-section {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 50px;
+      align-items: center;
+      margin-bottom: 100px;
+    }
+    
+    .history-image {
+      position: relative;
+      height: 500px;
+      border-radius: 10px;
+      overflow: hidden;
+      box-shadow: 0 20px 30px rgba(0, 0, 0, 0.2);
+    }
+    
+    .history-image img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: var(--transition);
+    }
+    
+    .history-image:hover img {
+      transform: scale(1.05);
+    }
+    
+    .history-content {
+      position: relative;
+    }
+    
+    .history-content h3 {
+      font-size: 2rem;
+      margin-bottom: 20px;
+      color: var(--primary);
+    }
+    
+    .timeline {
+      position: relative;
+      max-width: 800px;
+      margin: 0 auto 100px;
+    }
+    
+    .timeline::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 2px;
+      height: 100%;
+      background-color: var(--gold);
+    }
+    
+    .timeline-item {
+      padding: 20px 40px;
+      position: relative;
+      width: 50%;
+      opacity: 0;
+      transform: translateY(50px);
+      transition: var(--transition);
+    }
+    
+    .timeline-item.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+    
+    .timeline-item:nth-child(odd) {
+      left: 0;
+    }
+    
+    .timeline-item:nth-child(even) {
+      left: 50%;
+    }
+    
+    .timeline-content {
+      padding: 20px;
+      background: white;
+      border-radius: 8px;
+      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+      position: relative;
+    }
+    
+    .timeline-content::before {
+      content: '';
+      position: absolute;
+      top: 30px;
+      right: -15px;
+      width: 0;
+      height: 0;
+      border-style: solid;
+      border-width: 10px 0 10px 15px;
+      border-color: transparent transparent transparent white;
+    }
+    
+    .timeline-item:nth-child(even) .timeline-content::before {
+      left: -15px;
+      border-width: 10px 15px 10px 0;
+      border-color: transparent white transparent transparent;
+    }
+    
+    .timeline-date {
+      font-weight: 600;
+      color: var(--gold);
+      margin-bottom: 10px;
+    }
+    
+    .timeline-item:nth-child(odd) .timeline-date {
+      text-align: right;
+    }
+    
+    .timeline-item:nth-child(even) .timeline-date {
+      text-align: left;
+    }
+    
+    .timeline-dot {
+      position: absolute;
+      top: 30px;
+      right: -6px;
+      width: 12px;
+      height: 12px;
+      background-color: var(--gold);
+      border-radius: 50%;
+    }
+    
+    .timeline-item:nth-child(even) .timeline-dot {
+      left: -6px;
+    }
+    
+    /* Current Ministries */
+    .ministries-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 30px;
+      margin-top: 50px;
+    }
+    
+    .ministry-card {
+      background: white;
+      border-radius: 10px;
+      overflow: hidden;
+      box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+      transition: var(--transition);
+    }
+    
+    .ministry-card:hover {
+      transform: translateY(-10px);
+      box-shadow: 0 15px 30px rgba(0, 0, 0, 0.2);
+    }
+    
+    .ministry-image {
+      height: 200px;
+      overflow: hidden;
+    }
+    
+    .ministry-image img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: var(--transition);
+    }
+    
+    .ministry-card:hover .ministry-image img {
+      transform: scale(1.1);
+    }
+    
+    .ministry-content {
+      padding: 20px;
+    }
+    
+    .ministry-content h3 {
+      color: var(--primary);
+      margin-bottom: 10px;
+    }
+    
+    /* Footer */
+    footer {
+      background-color: var(--dark);
+      color: white;
+      padding: 60px 0 20px;
+      text-align: center;
+    }
+    
+    .footer-content {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 20px;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 40px;
+      text-align: left;
+    }
+    
+    .footer-column h3 {
+      color: var(--gold);
+      margin-bottom: 20px;
+      font-size: 1.3rem;
+    }
+    
+    .footer-column ul {
+      list-style: none;
+    }
+    
+    .footer-column ul li {
+      margin-bottom: 10px;
+    }
+    
+    .footer-column ul li a {
+      color: #ccc;
+      text-decoration: none;
+      transition: var(--transition);
+    }
+    
+    .footer-column ul li a:hover {
+      color: white;
+      padding-left: 5px;
+    }
+    
+    .social-links {
+      display: flex;
+      gap: 15px;
+      margin-top: 20px;
+    }
+    
+    .social-links a {
+      color: white;
+      background-color: rgba(255, 255, 255, 0.1);
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: var(--transition);
+    }
+    
+    .social-links a:hover {
+      background-color: var(--gold);
+      transform: translateY(-5px);
+    }
+    
+    .copyright {
+      margin-top: 40px;
+      padding-top: 20px;
+      border-top: 1px solid rgba(255, 255, 255, 0.1);
+      font-size: 0.9rem;
+      color: #aaa;
+    }
+    
+    /* Animations */
+    @keyframes fadeIn {
+      from { opacity: 0; }
+      to { opacity: 1; }
+    }
+    
+    .fade-in {
+      animation: fadeIn 1s ease-in-out;
+    }
+    
+    /* Responsive */
+    @media (max-width: 992px) {
+      .history-section {
+        grid-template-columns: 1fr;
+      }
+      
+      .timeline::before {
+        left: 31px;
+      }
+      
+      .timeline-item {
+        width: 100%;
+        padding-left: 70px;
+        padding-right: 25px;
+      }
+      
+      .timeline-item:nth-child(even) {
+        left: 0;
+      }
+      
+      .timeline-content::before {
+        left: -15px !important;
+        border-width: 10px 15px 10px 0 !important;
+        border-color: transparent white transparent transparent !important;
+      }
+      
+      .timeline-dot {
+        left: 25px !important;
+      }
+      
+      .timeline-date {
+        text-align: left !important;
+      }
+    }
+    
+    @media (max-width: 768px) {
+      .hero h1 {
+        font-size: 3rem;
+      }
+      
+      nav {
+        padding: 15px 5%;
+      }
+      
+      .nav-links {
+        display: none;
+      }
+      
+      .section-title h2 {
+        font-size: 2rem;
+      }
+    }
+  </style>
 </head>
-<body style="font-family: Arial, sans-serif; margin:0; background-color:#f5f5f5; color:#333;">
+<body>
+  <!-- Navigation -->
+  <nav id="navbar">
+    <a href="index.html" class="logo">New Covenant Ministries</a>
+    <div class="nav-links">
+      <a href="index.html">Home</a>
+      <a href="about.html">About the Ministries</a>
+      <a href="rev.html">About Rev.Ezra</a>
+      <a href="believe.html">We Believe</a>
+      <a href="watch.html">Watch Live</a>
+      <a href="media.html">Media</a>
+      <a href="contact.html">Contact</a>
+    </div>
+  </nav>
 
-  <!-- Header with Nav -->
-  <div style="background-color:#8B0000; padding:20px; color:white; text-align:center;">
-    <h1>New Covenant Ministries</h1>
-    <p>
-      <a href="index.html" style="color:white; margin:0 10px;">Home</a> |
-      <a href="about.html" style="color:white; margin:0 10px;">About the Ministries</a> |
-      <a href="rev.html" style="color:white; margin:0 10px;">About Rev.Ezra</a> |
-      <a href="believe.html" style="color:white; margin:0 10px;">We Believe</a> |
-      <a href="watch.html" style="color:white; margin:0 10px;">Watch Live</a> |
-      <a href="media.html" style="color:white; margin:0 10px;">Media</a> |
-      <a href="contact.html" style="color:white; margin:0 10px;">Contact</a>
-    </p>
-  </div>
+  <!-- Hero Section -->
+  <section class="hero">
+    <div class="hero-bg" id="parallax-bg"></div>
+    <div class="hero-content">
+      <h1 class="fade-in">Our Journey of Grace</h1>
+      <p>From humble beginnings to spreading the Gospel of Grace across Tamil Nadu</p>
+    </div>
+  </section>
 
   <!-- Main Content -->
-  <div style="max-width:900px; margin:20px auto; background:white; padding:20px; box-shadow:0 0 10px rgba(0,0,0,0.1);">
-    <h2 style="color:#8B0000;">About the Ministries</h2>
-    <p>Rev. Ezra Venkatesh started a small church with only two members in the year 2003 at Rajapalayam. By the grace of God, gradually the church started growing.</p>
+  <div class="container">
+    <!-- History Section -->
+    <section>
+      <div class="section-title">
+        <h2>Our Foundation</h2>
+      </div>
+      
+      <div class="history-section">
+        <div class="history-image">
+          <img src="https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1170&q=80" alt="Rev. Ezra preaching">
+        </div>
+        <div class="history-content">
+          <h3>A Divine Calling</h3>
+          <p>Rev. Ezra Venkatesh started a small church with only two members in the year 2003 at Rajapalayam. By the grace of God, gradually the church started growing.</p>
+          <p>As Rev. Ezra preached the word of faith, God made him understand the gospel of grace. He began to preach the unconditional love and favour of God. One night Rev. Ezra had a personal encounter with the Lord Jesus.</p>
+        </div>
+      </div>
+      
+      <div class="history-section">
+        <div class="history-content">
+          <h3>The Transformational Encounter</h3>
+          <p>The Lord asked him, "Will you stand firm and preach this gospel of grace despite the opposition from certain groups of people?" Ezra answered Him that he would preach this gospel of grace even if all the congregation members were to desert him. This personal encounter with God transformed his life and ministry.</p>
+          <p>After knowing the heart of God and getting a mandate from Him, he started preaching the truth about grace without attempting to balance or mix it with the law. The Gospel of Grace is the foundation of this "New Covenant Ministries".</p>
+        </div>
+        <div class="history-image">
+          <img src="https://images.unsplash.com/photo-1501281668745-f7f57925c3b4?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1170&q=80" alt="Bible study">
+        </div>
+      </div>
+    </section>
     
-    <p>As Rev. Ezra preached the word of faith, God made him understand the gospel of grace. He began to preach the unconditional love and favour of God. One night Rev. Ezra had a personal encounter with the Lord Jesus. The Lord asked him, "Will you stand firm and preach this gospel of grace despite the opposition from certain groups of people?" Ezra answered Him that he would preach this gospel of grace even if all the congregation members were to desert him. This personal encounter with God transformed his life and ministry.</p>
-
-    <p>After knowing the heart of God and getting a mandate from Him, he started preaching the truth about grace without attempting to balance or mix it with the law. The Gospel of Grace is the foundation of this "New Covenant Ministries".</p>
-
-    <p>Now Rev. Ezra is pastoring two congregations in two places namely Srivilliputtur and Rajapalayam in Tamil Nadu. In every service people enjoy God's presence and His unconditional love. In every Sunday service Holy Communion is served in remembrance of the Lord Jesus with thanksgiving. For children, Sunday school is held simultaneously during church services. Every year Vacation Bible School is held during summer holidays.</p>
-
-    <p>You are welcome to our church services.</p>
+    <!-- Timeline Section -->
+    <section>
+      <div class="section-title">
+        <h2>Our Journey</h2>
+      </div>
+      
+      <div class="timeline">
+        <div class="timeline-item">
+          <div class="timeline-content">
+            <div class="timeline-date">2003</div>
+            <h3>Humble Beginnings</h3>
+            <p>Started with just two members in Rajapalayam, preaching the word of faith and discovering the true Gospel of Grace.</p>
+          </div>
+          <div class="timeline-dot"></div>
+        </div>
+        
+        <div class="timeline-item">
+          <div class="timeline-content">
+            <div class="timeline-date">2005</div>
+            <h3>The Divine Encounter</h3>
+            <p>Rev. Ezra's life-changing encounter with the Lord Jesus, receiving the mandate to preach grace unconditionally.</p>
+          </div>
+          <div class="timeline-dot"></div>
+        </div>
+        
+        <div class="timeline-item">
+          <div class="timeline-content">
+            <div class="timeline-date">2010</div>
+            <h3>Expansion to Srivilliputtur</h3>
+            <p>Established the second congregation in Srivilliputtur, reaching more souls with the message of grace.</p>
+          </div>
+          <div class="timeline-dot"></div>
+        </div>
+        
+        <div class="timeline-item">
+          <div class="timeline-content">
+            <div class="timeline-date">2015</div>
+            <h3>First Vacation Bible School</h3>
+            <p>Launched the annual summer program for children, nurturing the next generation in God's grace.</p>
+          </div>
+          <div class="timeline-dot"></div>
+        </div>
+        
+        <div class="timeline-item">
+          <div class="timeline-content">
+            <div class="timeline-date">2020</div>
+            <h3>Digital Ministry Launch</h3>
+            <p>Began live streaming services, reaching a global audience with the Gospel of Grace.</p>
+          </div>
+          <div class="timeline-dot"></div>
+        </div>
+      </div>
+    </section>
+    
+    <!-- Current Ministries Section -->
+    <section>
+      <div class="section-title">
+        <h2>Our Current Ministries</h2>
+      </div>
+      
+      <div class="ministries-grid">
+        <div class="ministry-card">
+          <div class="ministry-image">
+            <img src="https://images.unsplash.com/photo-1434030216411-0b793f4b4173?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1170&q=80" alt="Sunday Service">
+          </div>
+          <div class="ministry-content">
+            <h3>Sunday Services</h3>
+            <p>Weekly worship services in both locations featuring Holy Communion and powerful teachings on grace.</p>
+          </div>
+        </div>
+        
+        <div class="ministry-card">
+          <div class="ministry-image">
+            <img src="https://images.unsplash.com/photo-1601758003122-53c40e686a19?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1170&q=80" alt="Sunday School">
+          </div>
+          <div class="ministry-content">
+            <h3>Sunday School</h3>
+            <p>Children's ministry held simultaneously during church services to raise the next generation in grace.</p>
+          </div>
+        </div>
+        
+        <div class="ministry-card">
+          <div class="ministry-image">
+            <img src="https://images.unsplash.com/photo-1523050854058-8df90110c9f1?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1170&q=80" alt="Bible School">
+          </div>
+          <div class="ministry-content">
+            <h3>Vacation Bible School</h3>
+            <p>Annual summer program that brings children together for fun, fellowship, and foundational Bible teaching.</p>
+          </div>
+        </div>
+      </div>
+    </section>
   </div>
 
   <!-- Footer -->
-  <div style="background-color:#8B0000; color:white; text-align:center; padding:10px; margin-top:30px;">
-    <p>&copy; 2025 New Covenant Ministries. All rights reserved.</p>
-  </div>
+  <footer>
+    <div class="footer-content">
+      <div class="footer-column">
+        <h3>New Covenant Ministries</h3>
+        <p>Preaching the Gospel of Grace in Tamil Nadu since 2003.</p>
+        <div class="social-links">
+          <a href="#"><i class="fab fa-facebook-f"></i></a>
+          <a href="#"><i class="fab fa-youtube"></i></a>
+          <a href="#"><i class="fab fa-instagram"></i></a>
+        </div>
+      </div>
+      
+      <div class="footer-column">
+        <h3>Quick Links</h3>
+        <ul>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="about.html">About Us</a></li>
+          <li><a href="rev.html">About Rev. Ezra</a></li>
+          <li><a href="believe.html">Our Beliefs</a></li>
+        </ul>
+      </div>
+      
+      <div class="footer-column">
+        <h3>Services</h3>
+        <ul>
+          <li><a href="watch.html">Sunday Service</a></li>
+          <li><a href="watch.html">Tuesday Bible Study</a></li>
+          <li><a href="watch.html">Friday Prayer Meeting</a></li>
+          <li><a href="media.html">Sermon Archive</a></li>
+        </ul>
+      </div>
+      
+      <div class="footer-column">
+        <h3>Contact Us</h3>
+        <ul>
+          <li>Srivilliputtur Campus</li>
+          <li>Rajapalayam Campus</li>
+          <li>+91 94433 56225</li>
+          <li>info@exravenkatesh.org</li>
+        </ul>
+      </div>
+    </div>
+    
+    <div class="copyright">
+      <p>&copy; 2025 New Covenant Ministries. All Rights Reserved.</p>
+    </div>
+  </footer>
+
+  <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+  <script>
+    // Parallax Effect
+    window.addEventListener('scroll', function() {
+      const parallaxBg = document.getElementById('parallax-bg');
+      let scrollPosition = window.pageYOffset;
+      parallaxBg.style.transform = 'translateY(' + scrollPosition * 0.5 + 'px)';
+      
+      // Navbar effect
+      const navbar = document.getElementById('navbar');
+      if (window.scrollY > 100) {
+        navbar.classList.add('scrolled');
+      } else {
+        navbar.classList.remove('scrolled');
+      }
+    });
+    
+    // Timeline Animation
+    function animateTimeline() {
+      const timelineItems = document.querySelectorAll('.timeline-item');
+      
+      timelineItems.forEach((item, index) => {
+        const itemPosition = item.getBoundingClientRect().top;
+        const screenPosition = window.innerHeight / 1.3;
+        
+        if (itemPosition < screenPosition) {
+          setTimeout(() => {
+            item.classList.add('visible');
+          }, index * 200);
+        }
+      });
+    }
+    
+    window.addEventListener('scroll', animateTimeline);
+    window.addEventListener('load', animateTimeline);
+  </script>
 </body>
 </html>
