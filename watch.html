@@ -205,17 +205,35 @@
       border: none;
     }
     
-    .schedule-card {
+    .channel-card {
       background: var(--white);
       border-radius: 10px;
       padding: 40px;
       box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
       margin-bottom: 40px;
+      transition: transform 0.3s ease;
     }
     
-    .schedule-card h3 {
-      margin-bottom: 30px;
-      color: var(--primary);
+    .channel-card:hover {
+      transform: translateY(-5px);
+    }
+    
+    .channel-logo {
+      width: 150px;
+      height: 150px;
+      margin: 0 auto 20px;
+      border-radius: 50%;
+      background-color: #f0f0f0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      overflow: hidden;
+    }
+    
+    .channel-logo img {
+      max-width: 100%;
+      max-height: 100%;
+      object-fit: contain;
     }
     
     .schedule-item {
@@ -344,7 +362,7 @@
         font-size: 2.2rem;
       }
       
-      .schedule-card {
+      .channel-card {
         padding: 30px 20px;
       }
       
@@ -454,11 +472,12 @@
     
     // Stream detection and display logic
     const streamContainer = document.getElementById('streamContainer');
+    const youtubeChannel = 'https://www.youtube.com/@aftezravenkatesh';
     
-    // Function to check if currently live (this would be replaced with actual API call)
+    // Function to check if currently live (simulated for demo)
     function checkIfLive() {
-      // In a real implementation, you would call YouTube API here
-      // For demo purposes, we'll simulate both scenarios
+      // In production, you would use YouTube API to check live status
+      // For demo, we'll simulate both scenarios
       
       // Set to true to simulate live, false to simulate offline
       const isLiveSimulation = false;
@@ -466,7 +485,7 @@
       if(isLiveSimulation) {
         showLiveStream();
       } else {
-        showSchedule();
+        showChannelInfo();
       }
     }
     
@@ -481,26 +500,36 @@
       `;
     }
     
-    function showSchedule() {
+    function showChannelInfo() {
       streamContainer.innerHTML = `
-        <div class="schedule-card">
-          <h3>Our Live Service Schedule</h3>
-          <div class="schedule-item">
-            <span class="schedule-day">Sunday Morning</span>
-            <span class="schedule-time">8:00 AM IST</span>
+        <div class="channel-card">
+          <div class="channel-logo">
+            <!-- Replace with your actual channel logo -->
+            <img src="channel-logo-placeholder.jpg" alt="New Covenant Ministries YouTube Channel">
           </div>
-          <div class="schedule-item">
-            <span class="schedule-day">Tuesday Evening</span>
-            <span class="schedule-time">6:45 PM IST</span>
+          <h3>New Covenant Ministries YouTube Channel</h3>
+          <p>Our live streams will appear here when we're broadcasting.</p>
+          
+          <div class="schedule-card" style="margin-top: 30px;">
+            <h4>Our Regular Service Times</h4>
+            <div class="schedule-item">
+              <span class="schedule-day">Sunday Morning</span>
+              <span class="schedule-time">8:00 AM IST</span>
+            </div>
+            <div class="schedule-item">
+              <span class="schedule-day">Tuesday Evening</span>
+              <span class="schedule-time">6:45 PM IST</span>
+            </div>
           </div>
+          
+          <a href="${youtubeChannel}" target="_blank" class="btn">
+            Visit Our YouTube Channel <i class="fab fa-youtube"></i>
+          </a>
         </div>
         
-        <a href="https://www.youtube.com/@aftezravenkatesh" target="_blank" class="btn">
-          Visit Our YouTube Channel <i class="fab fa-youtube"></i>
-        </a>
-        
         <div class="message-box">
-          <p>Till then, hear the Word of God and be blessed. Our archived sermons are available on our YouTube channel.</p>
+          <p>While we're not live, you can watch our previous sermons and teachings on our YouTube channel. May the Word of God bless you as you listen!</p>
+          <p style="margin-top: 15px;"><em>"So then faith comes by hearing, and hearing by the word of God."</em> - Romans 10:17</p>
         </div>
       `;
     }
