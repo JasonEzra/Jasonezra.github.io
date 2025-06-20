@@ -1,196 +1,905 @@
-!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>New Covenant Ministries - Rev. Ezra Venkatesh</title>
-    <style>
-        /* Global Styles */
-        body {
-            font-family: 'Times New Roman', serif;
-            margin: 0;
-            padding: 0;
-            color: #333;
-            background-color: #f9f9f9;
-            line-height: 1.6;
-        }
-        
-        /* Header Styles */
-        .contact-bar {
-            background-color: #f0f0f0;
-            padding: 10px 0;
-            text-align: center;
-            font-size: 14px;
-            border-bottom: 1px solid #ddd;
-        }
-        
-        .time-display {
-            margin-top: 5px;
-            font-weight: bold;
-        }
-        
-        .nav-menu {
-            background-color: #fff;
-            padding: 15px 0;
-            text-align: center;
-            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
-        }
-        
-        .nav-menu a {
-            margin: 0 15px;
-            text-decoration: none;
-            color: #333;
-            font-weight: bold;
-            text-transform: uppercase;
-            font-size: 14px;
-        }
-        
-        /* Main Content Styles */
-        .hero-section {
-            text-align: center;
-            padding: 40px 20px;
-            background-color: #fff;
-            margin: 20px auto;
-            max-width: 900px;
-            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
-        }
-        
-        .bible-verse {
-            font-style: italic;
-            margin: 20px 0;
-            font-size: 18px;
-        }
-        
-        .verse-reference {
-            font-weight: bold;
-            margin-top: 10px;
-        }
-        
-        .testimony {
-            margin: 30px auto;
-            max-width: 800px;
-            padding: 0 20px;
-            text-align: justify;
-        }
-        
-        .testimony h2 {
-            text-align: center;
-            text-transform: uppercase;
-            color: #444;
-            margin-bottom: 20px;
-        }
-        
-        .testimony p {
-            margin-bottom: 15px;
-        }
-        
-        /* Schedule Styles */
-        .schedule {
-            background-color: #fff;
-            padding: 30px;
-            margin: 30px auto;
-            max-width: 600px;
-            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
-        }
-        
-        .schedule h2 {
-            text-align: center;
-            text-transform: uppercase;
-            color: #444;
-            margin-bottom: 20px;
-        }
-        
-        .schedule-item {
-            margin-bottom: 15px;
-        }
-        
-        .schedule-item strong {
-            display: block;
-        }
-        
-        /* Footer Styles */
-        footer {
-            text-align: center;
-            padding: 20px;
-            background-color: #f0f0f0;
-            border-top: 1px solid #ddd;
-            font-size: 12px;
-        }
-        
-        /* Utility Classes */
-        .uppercase {
-            text-transform: uppercase;
-        }
-    </style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>New Covenant Ministries - Experience God's Grace</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&family=Playfair+Display:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <style>
+    :root {
+      --primary: #8B0000;
+      --primary-light: #a52a2a;
+      --primary-dark: #5a0000;
+      --secondary: #1a1a2e;
+      --accent: #f8b400;
+      --light: #f9f9f9;
+      --white: #ffffff;
+      --text: #333333;
+      --text-light: #666666;
+      --transition: all 0.4s cubic-bezier(0.645, 0.045, 0.355, 1);
+    }
+    
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    
+    body {
+      font-family: 'Montserrat', sans-serif;
+      color: var(--text);
+      line-height: 1.7;
+      background-color: var(--light);
+      overflow-x: hidden;
+    }
+    
+    h1, h2, h3, h4, h5 {
+      font-family: 'Playfair Display', serif;
+      font-weight: 600;
+      color: var(--secondary);
+      line-height: 1.3;
+    }
+    
+    .container {
+      width: 100%;
+      max-width: 1400px;
+      margin: 0 auto;
+      padding: 0 20px;
+    }
+    
+    /* Header Styles */
+    header {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      background-color: rgba(255, 255, 255, 0.95);
+      box-shadow: 0 2px 30px rgba(0, 0, 0, 0.1);
+      z-index: 1000;
+      transition: var(--transition);
+    }
+    
+    .header-inner {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 20px 0;
+      position: relative;
+    }
+    
+    .logo {
+      font-size: 1.8rem;
+      font-weight: 700;
+      color: var(--primary);
+      text-decoration: none;
+      display: flex;
+      align-items: center;
+    }
+    
+    .logo i {
+      margin-right: 10px;
+      font-size: 1.5rem;
+    }
+    
+    /* Navigation */
+    .nav-links {
+      display: flex;
+      list-style: none;
+    }
+    
+    .nav-links li {
+      margin-left: 30px;
+      position: relative;
+    }
+    
+    .nav-links li a {
+      color: var(--secondary);
+      text-decoration: none;
+      font-weight: 500;
+      transition: var(--transition);
+      padding: 5px 0;
+      position: relative;
+      font-size: 1rem;
+    }
+    
+    .nav-links li a:hover {
+      color: var(--primary);
+    }
+    
+    .nav-links li a:after {
+      content: '';
+      position: absolute;
+      width: 0;
+      height: 2px;
+      background: var(--primary);
+      bottom: 0;
+      left: 0;
+      transition: var(--transition);
+    }
+    
+    .nav-links li a:hover:after {
+      width: 100%;
+    }
+    
+    .mobile-menu-btn {
+      display: none;
+      background: none;
+      border: none;
+      font-size: 1.5rem;
+      color: var(--secondary);
+      cursor: pointer;
+    }
+    
+    /* Hero Section */
+    .hero {
+      height: 100vh;
+      min-height: 800px;
+      display: flex;
+      align-items: center;
+      position: relative;
+      overflow: hidden;
+      background: linear-gradient(135deg, rgba(26, 26, 46, 0.9) 0%, rgba(139, 0, 0, 0.8) 100%);
+    }
+    
+    .hero::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: url('church-bg.jpg') center/cover no-repeat;
+      z-index: -1;
+      opacity: 0.3;
+    }
+    
+    .hero-content {
+      max-width: 800px;
+      color: var(--white);
+      position: relative;
+      z-index: 1;
+    }
+    
+    .hero h1 {
+      font-size: 4rem;
+      margin-bottom: 20px;
+      color: var(--white);
+      line-height: 1.2;
+      text-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+    }
+    
+    .hero p {
+      font-size: 1.2rem;
+      margin-bottom: 40px;
+      opacity: 0.9;
+    }
+    
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      background-color: var(--primary);
+      color: var(--white);
+      padding: 15px 35px;
+      border-radius: 50px;
+      text-decoration: none;
+      font-weight: 600;
+      transition: var(--transition);
+      border: 2px solid var(--primary);
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      font-size: 0.9rem;
+      box-shadow: 0 10px 20px rgba(139, 0, 0, 0.2);
+    }
+    
+    .btn:hover {
+      background-color: transparent;
+      color: var(--white);
+      transform: translateY(-3px);
+      box-shadow: 0 15px 30px rgba(139, 0, 0, 0.3);
+    }
+    
+    .btn-outline {
+      background-color: transparent;
+      color: var(--white);
+      border-color: var(--white);
+      margin-left: 15px;
+    }
+    
+    .btn-outline:hover {
+      background-color: var(--white);
+      color: var(--primary);
+    }
+    
+    .btn i {
+      margin-left: 8px;
+    }
+    
+    /* About Section */
+    .section {
+      padding: 120px 0;
+      position: relative;
+    }
+    
+    .section-title {
+      text-align: center;
+      margin-bottom: 70px;
+    }
+    
+    .section-title h2 {
+      font-size: 2.5rem;
+      position: relative;
+      display: inline-block;
+      padding-bottom: 15px;
+    }
+    
+    .section-title h2:after {
+      content: '';
+      position: absolute;
+      width: 80px;
+      height: 3px;
+      background: var(--primary);
+      bottom: 0;
+      left: 50%;
+      transform: translateX(-50%);
+    }
+    
+    .section-title p {
+      max-width: 700px;
+      margin: 20px auto 0;
+      color: var(--text-light);
+    }
+    
+    .about-content {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 50px;
+      align-items: center;
+    }
+    
+    .about-text h3 {
+      font-size: 1.8rem;
+      margin-bottom: 20px;
+    }
+    
+    .about-text p {
+      margin-bottom: 20px;
+    }
+    
+    .about-image {
+      position: relative;
+      border-radius: 10px;
+      overflow: hidden;
+      box-shadow: 0 30px 50px rgba(0, 0, 0, 0.1);
+    }
+    
+    .about-image img {
+      width: 100%;
+      height: auto;
+      display: block;
+      transition: var(--transition);
+    }
+    
+    .about-image:hover img {
+      transform: scale(1.03);
+    }
+    
+    /* Beliefs Section */
+    .beliefs {
+      background-color: var(--secondary);
+      color: var(--white);
+    }
+    
+    .beliefs .section-title h2,
+    .beliefs .section-title p {
+      color: var(--white);
+    }
+    
+    .beliefs-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 30px;
+    }
+    
+    .belief-card {
+      background-color: rgba(255, 255, 255, 0.05);
+      border-radius: 10px;
+      padding: 40px 30px;
+      transition: var(--transition);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+    }
+    
+    .belief-card:hover {
+      transform: translateY(-10px);
+      background-color: rgba(255, 255, 255, 0.1);
+      box-shadow: 0 15px 30px rgba(0, 0, 0, 0.2);
+    }
+    
+    .belief-card i {
+      font-size: 2.5rem;
+      color: var(--primary);
+      margin-bottom: 20px;
+    }
+    
+    .belief-card h3 {
+      color: var(--white);
+      margin-bottom: 15px;
+    }
+    
+    /* Services Section */
+    .services-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+      gap: 30px;
+    }
+    
+    .service-card {
+      background-color: var(--white);
+      border-radius: 10px;
+      overflow: hidden;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+      transition: var(--transition);
+    }
+    
+    .service-card:hover {
+      transform: translateY(-10px);
+      box-shadow: 0 15px 40px rgba(0, 0, 0, 0.1);
+    }
+    
+    .service-img {
+      height: 250px;
+      overflow: hidden;
+    }
+    
+    .service-img img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: var(--transition);
+    }
+    
+    .service-card:hover .service-img img {
+      transform: scale(1.05);
+    }
+    
+    .service-content {
+      padding: 30px;
+    }
+    
+    .service-content h3 {
+      margin-bottom: 15px;
+      font-size: 1.5rem;
+    }
+    
+    .service-content p {
+      margin-bottom: 20px;
+      color: var(--text-light);
+    }
+    
+    .service-meta {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-top: 20px;
+      padding-top: 20px;
+      border-top: 1px solid rgba(0, 0, 0, 0.05);
+    }
+    
+    /* Live Stream Section */
+    .live-stream {
+      background: linear-gradient(135deg, var(--primary-dark) 0%, var(--primary) 100%);
+      color: var(--white);
+      text-align: center;
+    }
+    
+    .live-stream .section-title h2 {
+      color: var(--white);
+    }
+    
+    .stream-container {
+      max-width: 900px;
+      margin: 0 auto;
+      background-color: rgba(0, 0, 0, 0.2);
+      border-radius: 10px;
+      padding: 40px;
+      box-shadow: 0 20px 50px rgba(0, 0, 0, 0.3);
+    }
+    
+    .stream-placeholder {
+      background-color: rgba(0, 0, 0, 0.3);
+      height: 500px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border-radius: 5px;
+      margin-bottom: 30px;
+      position: relative;
+      overflow: hidden;
+    }
+    
+    .stream-placeholder i {
+      font-size: 5rem;
+      color: rgba(255, 255, 255, 0.2);
+    }
+    
+    .stream-placeholder .live-badge {
+      position: absolute;
+      top: 20px;
+      right: 20px;
+      background-color: #ff0000;
+      color: white;
+      padding: 5px 15px;
+      border-radius: 30px;
+      font-size: 0.8rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      animation: pulse 2s infinite;
+    }
+    
+    @keyframes pulse {
+      0% { opacity: 1; }
+      50% { opacity: 0.6; }
+      100% { opacity: 1; }
+    }
+    
+    .stream-schedule {
+      display: flex;
+      justify-content: center;
+      gap: 30px;
+      margin-top: 40px;
+    }
+    
+    .schedule-card {
+      background-color: rgba(255, 255, 255, 0.1);
+      padding: 20px;
+      border-radius: 5px;
+      min-width: 200px;
+    }
+    
+    .schedule-card h4 {
+      color: var(--white);
+      margin-bottom: 10px;
+    }
+    
+    /* Footer */
+    footer {
+      background-color: var(--secondary);
+      color: var(--white);
+      padding: 80px 0 30px;
+    }
+    
+    .footer-content {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 50px;
+      margin-bottom: 60px;
+    }
+    
+    .footer-col h3 {
+      color: var(--white);
+      margin-bottom: 30px;
+      font-size: 1.3rem;
+      position: relative;
+      padding-bottom: 15px;
+    }
+    
+    .footer-col h3:after {
+      content: '';
+      position: absolute;
+      width: 50px;
+      height: 2px;
+      background: var(--primary);
+      bottom: 0;
+      left: 0;
+    }
+    
+    .footer-about p {
+      margin-bottom: 20px;
+      opacity: 0.8;
+    }
+    
+    .social-links {
+      display: flex;
+      gap: 15px;
+    }
+    
+    .social-links a {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 40px;
+      height: 40px;
+      background-color: rgba(255, 255, 255, 0.1);
+      border-radius: 50%;
+      color: var(--white);
+      transition: var(--transition);
+    }
+    
+    .social-links a:hover {
+      background-color: var(--primary);
+      transform: translateY(-3px);
+    }
+    
+    .footer-links ul {
+      list-style: none;
+    }
+    
+    .footer-links ul li {
+      margin-bottom: 15px;
+    }
+    
+    .footer-links ul li a {
+      color: rgba(255, 255, 255, 0.7);
+      text-decoration: none;
+      transition: var(--transition);
+      display: flex;
+      align-items: center;
+    }
+    
+    .footer-links ul li a:hover {
+      color: var(--white);
+      padding-left: 5px;
+    }
+    
+    .footer-links ul li a i {
+      margin-right: 10px;
+      font-size: 0.8rem;
+    }
+    
+    .footer-contact p {
+      display: flex;
+      align-items: center;
+      margin-bottom: 15px;
+      opacity: 0.8;
+    }
+    
+    .footer-contact p i {
+      margin-right: 15px;
+      color: var(--primary);
+    }
+    
+    .copyright {
+      text-align: center;
+      padding-top: 30px;
+      border-top: 1px solid rgba(255, 255, 255, 0.1);
+      color: rgba(255, 255, 255, 0.5);
+      font-size: 0.9rem;
+    }
+    
+    /* Responsive */
+    @media (max-width: 1200px) {
+      .hero h1 {
+        font-size: 3.5rem;
+      }
+    }
+    
+    @media (max-width: 992px) {
+      .hero h1 {
+        font-size: 3rem;
+      }
+      
+      .about-content {
+        grid-template-columns: 1fr;
+      }
+      
+      .about-image {
+        order: -1;
+      }
+    }
+    
+    @media (max-width: 768px) {
+      .mobile-menu-btn {
+        display: block;
+      }
+      
+      .nav-links {
+        position: fixed;
+        top: 80px;
+        left: -100%;
+        width: 100%;
+        height: calc(100vh - 80px);
+        background-color: var(--white);
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        transition: var(--transition);
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+      }
+      
+      .nav-links.active {
+        left: 0;
+      }
+      
+      .nav-links li {
+        margin: 15px 0;
+      }
+      
+      .nav-links li a {
+        font-size: 1.2rem;
+      }
+      
+      .hero h1 {
+        font-size: 2.5rem;
+      }
+      
+      .btn-group {
+        display: flex;
+        flex-direction: column;
+      }
+      
+      .btn-outline {
+        margin-left: 0;
+        margin-top: 15px;
+      }
+      
+      .stream-schedule {
+        flex-direction: column;
+        align-items: center;
+      }
+      
+      .section {
+        padding: 80px 0;
+      }
+    }
+    
+    @media (max-width: 576px) {
+      .hero h1 {
+        font-size: 2rem;
+      }
+      
+      .hero p {
+        font-size: 1rem;
+      }
+      
+      .section-title h2 {
+        font-size: 2rem;
+      }
+    }
+  </style>
 </head>
 <body>
-    <!-- Contact Bar -->
-    <div class="contact-bar">
-        <div>Mobile: +9194433 56325</div>
-        <div>Email: info@ezravenkatesh.org</div>
-        <div class="time-display">15:39:09</div>
+  <!-- Header -->
+  <header>
+    <div class="container header-inner">
+      <a href="index.html" class="logo">
+        <i class="fas fa-cross"></i> New Covenant
+      </a>
+      
+      <button class="mobile-menu-btn">
+        <i class="fas fa-bars"></i>
+      </button>
+      
+      <ul class="nav-links">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="rev.html">Rev. Ezra</a></li>
+        <li><a href="believe.html">We Believe</a></li>
+        <li><a href="watch.html">Watch Live</a></li>
+        <li><a href="media.html">Media</a></li>
+        <li><a href="contact.html">Contact</a></li>
+      </ul>
     </div>
-    
-    <!-- Navigation Menu -->
-    <div class="nav-menu">
-        <a href="#">HOME</a>
-        <a href="#">ABOUT</a>
-        <a href="#">WATCH LIVE</a>
-        <a href="#">MEDIA</a>
-        <a href="#">CONTACT</a>
-    </div>
-    
-    <!-- Hero Section -->
-    <div class="hero-section">
-        <p>It is more important for me to fulfill my destiny and to finish the ministry my Lord Jesus has assigned to me, which is to faithfully preach the wonderful news of God's Grace.</p>
-        
-        <div class="bible-verse">
-            Acts 20 : 24 (1PT)
+  </header>
+
+  <!-- Hero Section -->
+  <section class="hero">
+    <div class="container">
+      <div class="hero-content">
+        <h1>How Fullness Have We All Received</h1>
+        <p>Experience the transformative power of God's grace through New Covenant Ministries</p>
+        <div class="btn-group">
+          <a href="watch.html" class="btn">Watch Live <i class="fas fa-play"></i></a>
+          <a href="about.html" class="btn btn-outline">Learn More <i class="fas fa-arrow-right"></i></a>
         </div>
-        
-        <h1 class="uppercase">JESUS BECAME THE ANSWER FOR ALL HIS QUESTIONS. THE THIRSTY SOUL WAS SATISFIED WITH DIVINE LOVE AND PEACE.</h1>
+      </div>
     </div>
-    
-    <!-- Testimony Section -->
-    <div class="testimony">
-        <h2>Rev. Ezra Venkatesh</h2>
-        
-        <p>Rev. Ezra Venkatesh was born and brought up in a Hindu family. Though He was like a sheep going astray, it was God's pleasure to reveal His Son in him.</p>
-        
-        <p>After his studies he was working in a company. Having many friends, getting a salary, making merry, everything was going well outwardly. But in his heart, he had many questions like, Why am I here in this earth? What is the purpose of my life? Who has made me live here? He felt emptiness and loneliness in his heart. None of his religious rituals could give peace. As he was searching for the truth he went to a church and came to know about Jesus Christ. Jesus became the answer for all his questions. The thirsty soul was satisfied with divine love and peace.</p>
-        
-        <p>After few years of his Christian walk, he felt that he had a definite call of God for ministry. So, he resigned his job and joined a Bible college. Now God is leading him in every step of his life and in the ministry.</p>
-        
-        <p>Rev.Ezra is a good teacher and all his teachings are based on the New covenant and the finished work at the Cross.</p>
-        
-        <p>Pastor Ezra found Ruby as his help meet, who had already yielded to God's call at her young age. As a virtuous woman she is the crown of Ezra. They are blessed with two sons Jason Ezra and Jerome Ezra.</p>
+  </section>
+
+  <!-- About Section -->
+  <section class="section">
+    <div class="container">
+      <div class="about-content">
+        <div class="about-text">
+          <h3>About Our Ministry</h3>
+          <p>Rev. Ezra Venkatesh started a small church with only two members in the year 2003 at Rajapalayam. By the grace of God, gradually the church started growing.</p>
+          <p>As Rev. Ezra preached the word of faith, God made him understand the gospel of grace. He began to preach the unconditional love and favour of God.</p>
+          <a href="about.html" class="btn">Read More <i class="fas fa-arrow-right"></i></a>
+        </div>
+        <div class="about-image">
+          <img src="ministry-about.jpg" alt="New Covenant Ministries">
+        </div>
+      </div>
     </div>
-    
-    <!-- Schedule Section -->
-    <div class="schedule">
-        <h2>Service Schedule</h2>
-        
-        <div class="schedule-item">
-            <strong>Every Sunday Morning</strong>
-            <div>08:00 AM - 10:15 AM (IST) AT SINVILIPUTTUR</div>
-            <div>10:30 AM - 12:45 PM (IST) AT RAJAPALAYAM</div>
+  </section>
+
+  <!-- Beliefs Section -->
+  <section class="section beliefs">
+    <div class="container">
+      <div class="section-title">
+        <h2>We Believe</h2>
+        <p>Our foundational beliefs that guide everything we do</p>
+      </div>
+      <div class="beliefs-grid">
+        <div class="belief-card">
+          <i class="fas fa-dove"></i>
+          <h3>In the Triune God</h3>
+          <p>Father, Son, and Holy Spirit - three persons in one Godhead.</p>
         </div>
-        
-        <div class="schedule-item">
-            <strong>Every Tuesday Evening</strong>
-            <div>06:45 PM - 08:30 PM (IST) AT SINVILIPUTTUR</div>
+        <div class="belief-card">
+          <i class="fas fa-bible"></i>
+          <h3>In Scripture</h3>
+          <p>The Bible as God's inspired, authoritative Word for life and conduct.</p>
         </div>
-        
-        <div class="schedule-item">
-            <strong>Every Friday Evening</strong>
-            <div>INTERCESSORY PRAYER</div>
-            <div>07:00 PM - 08:00 PM (IST) AT SINVILIPUTTUR & RAJAPALAYAM</div>
+        <div class="belief-card">
+          <i class="fas fa-cross"></i>
+          <h3>In Salvation</h3>
+          <p>By grace through faith in Christ's atoning death and resurrection.</p>
         </div>
+      </div>
     </div>
+  </section>
+
+  <!-- Services Section -->
+  <section class="section">
+    <div class="container">
+      <div class="section-title">
+        <h2>Our Services</h2>
+        <p>Join us for worship and spiritual growth</p>
+      </div>
+      <div class="services-grid">
+        <div class="service-card">
+          <div class="service-img">
+            <img src="sunday-service.jpg" alt="Sunday Service">
+          </div>
+          <div class="service-content">
+            <h3>Sunday Worship</h3>
+            <p>Our weekly gathering for communion, worship, and biblical teaching.</p>
+            <div class="service-meta">
+              <span><i class="far fa-clock"></i> 10:00 AM</span>
+              <a href="#" class="btn">Details</a>
+            </div>
+          </div>
+        </div>
+        <div class="service-card">
+          <div class="service-img">
+            <img src="bible-study.jpg" alt="Bible Study">
+          </div>
+          <div class="service-content">
+            <h3>Bible Study</h3>
+            <p>Midweek deep dive into Scripture with practical applications.</p>
+            <div class="service-meta">
+              <span><i class="far fa-clock"></i> 7:00 PM</span>
+              <a href="#" class="btn">Details</a>
+            </div>
+          </div>
+        </div>
+        <div class="service-card">
+          <div class="service-img">
+            <img src="prayer-meeting.jpg" alt="Prayer Meeting">
+          </div>
+          <div class="service-content">
+            <h3>Prayer Meetings</h3>
+            <p>Corporate prayer gatherings to seek God's presence and power.</p>
+            <div class="service-meta">
+              <span><i class="far fa-clock"></i> 6:00 AM</span>
+              <a href="#" class="btn">Details</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Live Stream Section -->
+  <section class="section live-stream">
+    <div class="container">
+      <div class="section-title">
+        <h2>Join Us Live</h2>
+        <p>Experience our services from anywhere in the world</p>
+      </div>
+      <div class="stream-container">
+        <div class="stream-placeholder">
+          <span class="live-badge">Live Now</span>
+          <i class="fas fa-church"></i>
+        </div>
+        <p>Our services are streamed live twice a week. We are delighted to glorify the Lord through our online ministry.</p>
+        <div class="stream-schedule">
+          <div class="schedule-card">
+            <h4>Sunday Service</h4>
+            <p>10:00 AM IST</p>
+          </div>
+          <div class="schedule-card">
+            <h4>Wednesday Bible Study</h4>
+            <p>7:00 PM IST</p>
+          </div>
+        </div>
+        <a href="watch.html" class="btn">Watch Now <i class="fas fa-play"></i></a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    <div class="container">
+      <div class="footer-content">
+        <div class="footer-col footer-about">
+          <h3>New Covenant Ministries</h3>
+          <p>Preaching the Gospel of Grace since 2003 in Rajapalayam and Srivilliputtur, Tamil Nadu.</p>
+          <div class="social-links">
+            <a href="#"><i class="fab fa-facebook-f"></i></a>
+            <a href="#"><i class="fab fa-youtube"></i></a>
+            <a href="#"><i class="fab fa-instagram"></i></a>
+            <a href="#"><i class="fab fa-twitter"></i></a>
+          </div>
+        </div>
+        <div class="footer-col footer-links">
+          <h3>Quick Links</h3>
+          <ul>
+            <li><a href="index.html"><i class="fas fa-chevron-right"></i> Home</a></li>
+            <li><a href="about.html"><i class="fas fa-chevron-right"></i> About Us</a></li>
+            <li><a href="rev.html"><i class="fas fa-chevron-right"></i> Rev. Ezra</a></li>
+            <li><a href="believe.html"><i class="fas fa-chevron-right"></i> We Believe</a></li>
+          </ul>
+        </div>
+        <div class="footer-col footer-links">
+          <h3>Ministry</h3>
+          <ul>
+            <li><a href="watch.html"><i class="fas fa-chevron-right"></i> Watch Live</a></li>
+            <li><a href="media.html"><i class="fas fa-chevron-right"></i> Media</a></li>
+            <li><a href="#"><i class="fas fa-chevron-right"></i> Events</a></li>
+            <li><a href="#"><i class="fas fa-chevron-right"></i> Give</a></li>
+          </ul>
+        </div>
+        <div class="footer-col footer-contact">
+          <h3>Contact Us</h3>
+          <p><i class="fas fa-map-marker-alt"></i> Rajapalayam & Srivilliputtur, Tamil Nadu</p>
+          <p><i class="fas fa-phone-alt"></i> +91 XXXX XXX XXX</p>
+          <p><i class="fas fa-envelope"></i> info@newcovenantministries.com</p>
+        </div>
+      </div>
+      <div class="copyright">
+        <p>&copy; 2025 New Covenant Ministries. All Rights Reserved.</p>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    // Mobile Menu Toggle
+    const mobileMenuBtn = document.querySelector('.mobile-menu-btn');
+    const navLinks = document.querySelector('.nav-links');
     
-    <!-- Footer -->
-    <footer>
-        Copyright © 2020. New Covenant Ministries.
-    </footer>
+    mobileMenuBtn.addEventListener('click', () => {
+      navLinks.classList.toggle('active');
+      mobileMenuBtn.innerHTML = navLinks.classList.contains('active') ? 
+        '<i class="fas fa-times"></i>' : '<i class="fas fa-bars"></i>';
+    });
+    
+    // Smooth scrolling for anchor links
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+      anchor.addEventListener('click', function(e) {
+        e.preventDefault();
+        
+        if(this.getAttribute('href') === '#') return;
+        
+        document.querySelector(this.getAttribute('href')).scrollIntoView({
+          behavior: 'smooth'
+        });
+      });
+    });
+    
+    // Header scroll effect
+    window.addEventListener('scroll', () => {
+      if(window.scrollY > 100) {
+        document.querySelector('header').style.background = 'rgba(26, 26, 46, 0.95)';
+        document.querySelector('header').style.boxShadow = '0 2px 30px rgba(0, 0, 0, 0.2)';
+      } else {
+        document.querySelector('header').style.background = 'rgba(255, 255, 255, 0.95)';
+        document.querySelector('header').style.boxShadow = '0 2px 30px rgba(0, 0, 0, 0.1)';
+      }
+    });
+  </script>
 </body>
 </html>
